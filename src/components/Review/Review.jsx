@@ -24,6 +24,7 @@ class Review extends Component {
       .catch(error => {
           console.log('there was an error in the client side POST', error)
       })
+      this.props.history.push('/success')
   }
 
   render() {

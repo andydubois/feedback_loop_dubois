@@ -34,7 +34,7 @@ class Review extends Component {
         <h3>Understanding: {this.props.reduxStore.understandingReducer}</h3>
         <h3>Support: {this.props.reduxStore.supportReducer}</h3>
         <h3>Comments: {this.props.reduxStore.commentReducer}</h3>
-        <button>Submit</button>
+        <button onClick={this.handleSubmit}>Submit</button>
       </div>
     );
   }

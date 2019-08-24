@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-class Understanding extends Component {
+class Comments extends Component {
   //local state
   state = {
-    understandingScore: 0
+    comment: ""
   };
 
   //handle change function to rule them all
@@ -13,35 +13,33 @@ class Understanding extends Component {
       ...this.state,
       [propertyName]: event.target.value
     });
-    console.log(this.state.understandingScore);
+    console.log(this.state.comment);
   };
 
+  //function to run when Next button is clicked and "submits" form
   handleSubmit = event => {
     event.preventDefault();
     //takes current local state and sends to reducer
     this.props.dispatch({
-      type: "ADD_UNDERSTANDING",
-      payload: this.state.understandingScore
+      type: "ADD_COMMENT",
+      payload: this.state.comment
     });
     //sends user to next page
-    this.props.history.push("/support");
+    this.props.history.push("/review");
   };
 
-  handleBackButton = event => [this.props.history.push("/")];
+  handleBackButton = event => [this.props.history.push("/support")];
 
   render() {
     return (
       <div>
-        <h2>How well are you understanding the content?</h2>
-        <p>Understanding?</p>
+        <h2>Any comments you want to leave?</h2>
+        <p>Comments</p>
         <form onSubmit={this.handleSubmit}>
           <input
-            type='number'
-            placeholder='1-10'
-            min='1'
-            max='10'
-            required
-            onChange={event => this.handleChange("understandingScore", event)}
+            type='text'
+            placeholder='Leave any comments here!'
+            onChange={event => this.handleChange("comment", event)}
           />
           <button type='submit'>NEXT</button>
         </form>
@@ -51,4 +49,4 @@ class Understanding extends Component {
   }
 }
 
-export default connect()(Understanding);
+export default connect()(Comments);

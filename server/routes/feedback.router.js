@@ -4,6 +4,18 @@ const pool = require("../modules/pool");
 
 
 
+router.get('/', (req, res) => {
+    console.log('server side GET in router');
+    queryText= `SELECT * from feedback;`;
+    pool.query(queryText)
+    .then((result) => {
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log('error in server side GET', error)
+        res.sendStatus(500);
+    })
+})
+
 
 
 router.post('/', (req, res) => {

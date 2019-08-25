@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 
 //table components from Material UI
+import AdminTablePieces from "../AdminTablePieces/AdminTablePieces";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -10,8 +11,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { statement } from "@babel/template";
-
-
 
 class Admin extends Component {
   state = {
@@ -39,6 +38,10 @@ class Admin extends Component {
   };
 
   render() {
+    let listOfFeedback = this.state.feedbackArray.map(feedback => {
+      return <AdminTablePieces feedback={feedback} />;
+    });
+
     return (
       <div>
         <h1>Feedback Results (ADMIN VIEW)</h1>
@@ -50,12 +53,12 @@ class Admin extends Component {
                 <TableCell>Feelings</TableCell>
                 <TableCell>Understanding</TableCell>
                 <TableCell>Support</TableCell>
-                <TableCell>Comments</TableCell>
+                <TableCell align="center">Comments</TableCell>
                 <TableCell>Further Attention?</TableCell>
                 <TableCell>Date</TableCell>
               </TableRow>
             </TableHead>
-            <TableBody></TableBody>
+            <TableBody>{listOfFeedback}</TableBody>
           </Table>
         </Paper>
 

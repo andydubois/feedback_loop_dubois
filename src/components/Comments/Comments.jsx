@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+//Material UI components
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { ArrowRightSharp } from "@material-ui/icons";
+import { Assignment } from "@material-ui/icons";
+import InputAdornment from "@material-ui/core/InputAdornment";
+
 class Comments extends Component {
   //local state
   state = {
@@ -34,14 +41,27 @@ class Comments extends Component {
     return (
       <div>
         <h2>Any comments you want to leave?</h2>
-        <p>Comments</p>
         <form onSubmit={this.handleSubmit}>
-          <input
-            type='text'
-            placeholder='Leave any comments here!'
+          <TextField
+            className='commentSection'
+            label='Leave comments here'
             onChange={event => this.handleChange("comment", event)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position='start'>
+                  <Assignment />
+                </InputAdornment>
+              )
+            }}
           />
-          <button type='submit'>NEXT</button>
+          <br />
+          <Button
+            className='nextButton'
+            variant='contained'
+            color='primary'
+            type='submit'>
+            NEXT <ArrowRightSharp />
+          </Button>
         </form>
         <button onClick={this.handleBackButton}>BACK</button>
       </div>

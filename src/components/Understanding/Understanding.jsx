@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+//Material UI components
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import {ArrowRightSharp} from "@material-ui/icons";
+import { AssignmentReturn } from "@material-ui/icons";
+
 class Understanding extends Component {
   //local state
   state = {
@@ -33,19 +39,26 @@ class Understanding extends Component {
     return (
       <div>
         <h2>How well are you understanding the content?</h2>
-        <p>Understanding?</p>
         <form onSubmit={this.handleSubmit}>
-          <input
+          <TextField
+            className='scoreInputField'
             type='number'
-            placeholder='1-10'
-            min='1'
-            max='10'
+            placeholder='Scale from 1-10'
+            inputProps={{ min: "0", max: "10", step: "1" }}
             required
             onChange={event => this.handleChange("understandingScore", event)}
+            margin='normal'
           />
-          <button type='submit'>NEXT</button>
+          <br />
+          <Button
+            variant='contained'
+            color='primary'
+            type='submit'
+            className='nextButton'>
+            NEXT <ArrowRightSharp />
+          </Button>
         </form>
-        <button onClick={this.handleBackButton}>BACK</button>
+        <Button variant='outlined' color='secondary' onClick={this.handleBackButton}><AssignmentReturn />BACK</Button>
       </div>
     );
   }

@@ -10,7 +10,6 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { statement } from "@babel/template";
 
 class Admin extends Component {
   state = {
@@ -39,7 +38,9 @@ class Admin extends Component {
 
   render() {
     let listOfFeedback = this.state.feedbackArray.map(feedback => {
-      return <AdminTablePieces feedback={feedback} />;
+      return (
+        <AdminTablePieces key={feedback.id} feedback={feedback} />
+      );
     });
 
     return (

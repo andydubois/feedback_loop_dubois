@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { ArrowRightSharp } from "@material-ui/icons";
-import { AssignmentReturn } from "@material-ui/icons";
+import { Undo } from "@material-ui/icons";
+import { CssBaseline } from "@material-ui/core";
 
 class Understanding extends Component {
   //local state
@@ -38,6 +39,7 @@ class Understanding extends Component {
   render() {
     return (
       <div>
+        <CssBaseline />
         <h2>How well are you understanding the content?</h2>
         <p>1 for worst, 10 for best</p>
         <form onSubmit={this.handleSubmit}>
@@ -52,10 +54,10 @@ class Understanding extends Component {
           />
           <br />
           <Button
-            variant='outlined'
+            variant='contained'
             color='secondary'
             onClick={this.handleBackButton}>
-            <AssignmentReturn />
+            <Undo />
             BACK
           </Button>
           <Button

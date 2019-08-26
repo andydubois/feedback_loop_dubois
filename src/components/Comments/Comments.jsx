@@ -7,7 +7,8 @@ import Button from "@material-ui/core/Button";
 import { ArrowRightSharp } from "@material-ui/icons";
 import { Assignment } from "@material-ui/icons";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import { AssignmentReturn } from "@material-ui/icons";
+import { Undo } from "@material-ui/icons";
+import { CssBaseline } from "@material-ui/core";
 
 class Comments extends Component {
   //local state
@@ -41,6 +42,7 @@ class Comments extends Component {
   render() {
     return (
       <div>
+        <CssBaseline />
         <h2>Any comments you want to leave?</h2>
         <form onSubmit={this.handleSubmit}>
           <TextField
@@ -57,10 +59,10 @@ class Comments extends Component {
           />
           <br />
           <Button
-            variant='outlined'
+            variant='contained'
             color='secondary'
             onClick={this.handleBackButton}>
-            <AssignmentReturn />
+            <Undo />
             BACK
           </Button>
           <Button

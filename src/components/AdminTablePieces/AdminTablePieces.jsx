@@ -16,7 +16,7 @@ class AdminTablePieces extends Component {
             <TableCell align='center'>{this.props.feedback.understanding}</TableCell>
             <TableCell align='center'>{this.props.feedback.support}</TableCell>
             <TableCell align='center'>{this.props.feedback.comments}</TableCell>
-            <TableCell align='center'>{this.props.feedback.flagged}</TableCell>
+            <TableCell align='center'>{this.props.feedback.flagged.toString()}</TableCell>
             <TableCell align='center'><Moment format="MM/DD/YYYY">{this.props.feedback.date}</Moment></TableCell>
           </TableRow>
         );

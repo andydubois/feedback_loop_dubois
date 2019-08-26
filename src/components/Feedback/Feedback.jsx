@@ -6,6 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {ArrowRightSharp} from "@material-ui/icons";
 import { Undo } from "@material-ui/icons";
+import { CssBaseline } from "@material-ui/core";
 
 class Feedback extends Component {
   //local state
@@ -42,6 +43,7 @@ class Feedback extends Component {
 
     return (
       <div>
+          <CssBaseline />
         <h2>How are you feeling today?</h2>
         <p>1 for worst, 10 for best</p>
         <form onSubmit={this.handleSubmit}>

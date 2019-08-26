@@ -5,6 +5,8 @@ import axios from "axios";
 //Material UI components
 import { Send } from "@material-ui/icons";
 import Button from "@material-ui/core/Button";
+import { CssBaseline } from "@material-ui/core";
+import { Undo } from "@material-ui/icons";
 
 class Review extends Component {
   state = {
@@ -32,15 +34,25 @@ class Review extends Component {
     this.props.history.push("/success");
   };
 
+  handleBackButton = event => [this.props.history.push("/comments")];
+
   render() {
     return (
       <div>
+        <CssBaseline />
         <h1>REVIEW YOUR FEEDBACK</h1>
         <h3>Feelings: {this.props.reduxStore.feelingsReducer}</h3>
         <h3>Understanding: {this.props.reduxStore.understandingReducer}</h3>
         <h3>Support: {this.props.reduxStore.supportReducer}</h3>
         <h3>Comments: {this.props.reduxStore.commentReducer}</h3>
-        <Button onClick={this.handleSubmit} variant="outlined">
+        <Button
+          variant='contained'
+          color='secondary'
+          onClick={this.handleBackButton}>
+          <Undo />
+          BACK
+        </Button>
+        <Button onClick={this.handleSubmit} variant='outlined'>
           Submit <Send />
         </Button>
       </div>

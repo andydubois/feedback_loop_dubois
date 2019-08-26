@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { ArrowRightSharp } from "@material-ui/icons";
-import { AssignmentReturn } from "@material-ui/icons";
+import { Undo } from "@material-ui/icons";
+import { CssBaseline } from "@material-ui/core";
 
 
 class Support extends Component {
@@ -42,6 +43,7 @@ class Support extends Component {
   render() {
     return (
       <div>
+        <CssBaseline />
         <h2>How well are you being supported?</h2>
         <p>1 for worst, 10 for best</p>
         <form onSubmit={this.handleSubmit}>
@@ -56,10 +58,10 @@ class Support extends Component {
           />
           <br />
           <Button
-            variant='outlined'
+            variant='contained'
             color='secondary'
             onClick={this.handleBackButton}>
-            <AssignmentReturn />
+            <Undo />
             BACK
           </Button>
           <Button

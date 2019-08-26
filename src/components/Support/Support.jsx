@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 //Material UI components
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import {ArrowRightSharp} from "@material-ui/icons";
+import { ArrowRightSharp } from "@material-ui/icons";
 import { AssignmentReturn } from "@material-ui/icons";
 
 
@@ -43,6 +43,7 @@ class Support extends Component {
     return (
       <div>
         <h2>How well are you being supported?</h2>
+        <p>1 for worst, 10 for best</p>
         <form onSubmit={this.handleSubmit}>
           <TextField
             className='scoreInputField'
@@ -55,20 +56,20 @@ class Support extends Component {
           />
           <br />
           <Button
+            variant='outlined'
+            color='secondary'
+            onClick={this.handleBackButton}>
+            <AssignmentReturn />
+            BACK
+          </Button>
+          <Button
+            className='nextButton'
             variant='contained'
             color='primary'
-            type='submit'
-            className='nextButton'>
+            type='submit'>
             NEXT <ArrowRightSharp />
           </Button>
         </form>
-        <Button
-          variant='outlined'
-          color='secondary'
-          onClick={this.handleBackButton}>
-          <AssignmentReturn />
-          BACK
-        </Button>
       </div>
     );
   }

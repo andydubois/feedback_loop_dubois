@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 
+//Material UI components
+import { Send } from "@material-ui/icons";
+import Button from "@material-ui/core/Button";
+
 class Review extends Component {
   state = {
     feedback: {
@@ -13,19 +17,20 @@ class Review extends Component {
   };
 
   componentDidMount() {
-    console.log(this.state.feedback)
+    console.log(this.state.feedback);
   }
 
-  handleSubmit = (event) => {
-      axios.post('/feedback', this.state.feedback)
+  handleSubmit = event => {
+    axios
+      .post("/feedback", this.state.feedback)
       .then(response => {
-          console.log('successful post of object:', this.state.feedback)
+        console.log("successful post of object:", this.state.feedback);
       })
       .catch(error => {
-          console.log('there was an error in the client side POST', error)
-      })
-      this.props.history.push('/success')
-  }
+        console.log("there was an error in the client side POST", error);
+      });
+    this.props.history.push("/success");
+  };
 
   render() {
     return (
@@ -35,12 +40,13 @@ class Review extends Component {
         <h3>Understanding: {this.props.reduxStore.understandingReducer}</h3>
         <h3>Support: {this.props.reduxStore.supportReducer}</h3>
         <h3>Comments: {this.props.reduxStore.commentReducer}</h3>
-        <button onClick={this.handleSubmit}>Submit</button>
+        <Button onClick={this.handleSubmit} variant="outlined">
+          Submit <Send />
+        </Button>
       </div>
     );
   }
 }
-
 
 const mapStateToProps = reduxStore => ({
   reduxStore

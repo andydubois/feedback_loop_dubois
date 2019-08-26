@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {ArrowRightSharp} from "@material-ui/icons";
+import { Undo } from "@material-ui/icons";
 
 class Feedback extends Component {
   //local state
@@ -42,6 +43,7 @@ class Feedback extends Component {
     return (
       <div>
         <h2>How are you feeling today?</h2>
+        <p>1 for worst, 10 for best</p>
         <form onSubmit={this.handleSubmit}>
           <TextField
             className='scoreInputField'
@@ -55,9 +57,16 @@ class Feedback extends Component {
           <br />
           <Button
             variant='contained'
+            color='secondary'
+            onClick={this.handleBackButton}>
+            <Undo />
+            BACK
+          </Button>
+          <Button
+            className='nextButton'
+            variant='contained'
             color='primary'
-            type='submit'
-            className='nextButton'>
+            type='submit'>
             NEXT <ArrowRightSharp />
           </Button>
         </form>

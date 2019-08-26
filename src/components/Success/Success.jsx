@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+//Material UI components
+import Button from "@material-ui/core/Button";
+
+
 class Success extends Component {
 
 
@@ -15,7 +19,7 @@ class Success extends Component {
       <div>
         <h1>THANK YOU!!</h1>
 
-        <button onClick={this.handleSubmit}>Leave New Feedback</button>
+        <Button onClick={this.handleSubmit}>Leave New Feedback</Button>
       </div>
     );
   }

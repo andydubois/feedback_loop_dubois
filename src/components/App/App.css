@@ -3,6 +3,12 @@
      src: url(../../fonts/couture-bld.otf);
  }
 
+ @font-face {
+     font-family: cafe;
+     src: url(../../fonts/LouisGeorgeCafe.ttf);
+ }
+
+
 .App {
   text-align: center;
 }
@@ -33,4 +39,8 @@
 }
 .nextButton {
   margin: 1000px;
+}
+
+.content {
+font-family: cafe;
 }

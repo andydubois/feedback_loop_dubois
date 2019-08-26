@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import { ArrowRightSharp } from "@material-ui/icons";
 import { Assignment } from "@material-ui/icons";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import { AssignmentReturn } from "@material-ui/icons";
 
 class Comments extends Component {
   //local state
@@ -56,6 +57,13 @@ class Comments extends Component {
           />
           <br />
           <Button
+            variant='outlined'
+            color='secondary'
+            onClick={this.handleBackButton}>
+            <AssignmentReturn />
+            BACK
+          </Button>
+          <Button
             className='nextButton'
             variant='contained'
             color='primary'
@@ -63,7 +71,6 @@ class Comments extends Component {
             NEXT <ArrowRightSharp />
           </Button>
         </form>
-        <button onClick={this.handleBackButton}>BACK</button>
       </div>
     );
   }

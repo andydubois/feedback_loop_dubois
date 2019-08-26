@@ -32,6 +32,9 @@ class Review extends Component {
         console.log("there was an error in the client side POST", error);
       });
     this.props.history.push("/success");
+    this.props.dispatch({
+      type: "SUBMIT_ALL",
+    });
   };
 
   handleBackButton = event => [this.props.history.push("/comments")];

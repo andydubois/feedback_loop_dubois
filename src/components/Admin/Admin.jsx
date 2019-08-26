@@ -27,6 +27,7 @@ class Admin extends Component {
     this.props.history.push("/");
   };
 
+  //GET function to retrieve feedback from database
   getFeedback = () => {
     axios
       .get("/feedback")

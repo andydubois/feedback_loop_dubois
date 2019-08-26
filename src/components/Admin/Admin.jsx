@@ -38,18 +38,33 @@ class Admin extends Component {
       });
   };
 
+  deleteFeedback = id => {
+    axios.delete(`/feedback/delete/${id}`)
+      .then(response => {
+        console.log('deleted feedback!', response);
+        this.getFeedback();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   render() {
     let listOfFeedback = this.state.feedbackArray.map(feedback => {
-      return (
-        <AdminTablePieces key={feedback.id} feedback={feedback} />
-      );
+      return <AdminTablePieces key={feedback.id} feedback={feedback} deleteFeedback={this.deleteFeedback}/>;
     });
 
     return (
       <div>
         <CssBaseline />
         <h1>Feedback Results (ADMIN VIEW)</h1>
-
+        <Button
+          onClick={this.handleSubmit}
+          fullWidth
+          variant='contained'
+          color='secondary'>
+          Click Here to Return to Feedback
+        </Button>
         <Paper>
           <Table className='adminTable'>
             <TableHead>
@@ -60,18 +75,12 @@ class Admin extends Component {
                 <TableCell align='center'>Comments</TableCell>
                 <TableCell>Further Attention?</TableCell>
                 <TableCell>Date</TableCell>
+                <TableCell></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>{listOfFeedback}</TableBody>
           </Table>
         </Paper>
-        <Button
-          onClick={this.handleSubmit}
-          fullWidth
-          variant='contained'
-          color='secondary'>
-          Return to Feedback
-        </Button>
       </div>
     );
   }

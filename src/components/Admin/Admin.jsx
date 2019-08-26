@@ -39,19 +39,25 @@ class Admin extends Component {
   };
 
   deleteFeedback = id => {
-    axios.delete(`/feedback/delete/${id}`)
+    axios.delete(`/feedback/${id}`)
       .then(response => {
-        console.log('deleted feedback!', response);
+        console.log("deleted feedback!", response);
         this.getFeedback();
       })
       .catch(error => {
-        console.log(error);
+        console.log("error in client side delete", error);
       });
   };
 
   render() {
     let listOfFeedback = this.state.feedbackArray.map(feedback => {
-      return <AdminTablePieces key={feedback.id} feedback={feedback} deleteFeedback={this.deleteFeedback}/>;
+      return (
+        <AdminTablePieces
+          key={feedback.id}
+          feedback={feedback}
+          deleteFeedback={this.deleteFeedback}
+        />
+      );
     });
 
     return (

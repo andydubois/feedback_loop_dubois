@@ -27,7 +27,12 @@ class AdminTablePieces extends Component {
               <Moment format='MM/DD/YYYY'>{this.props.feedback.date}</Moment>
             </TableCell>
             <TableCell>
-              <Button variant='contained' color='primary' onClick={() => this.props.deleteFeedback(this.props.feedback.id)}>
+              <Button
+                variant='contained'
+                color='primary'
+                onClick={() =>
+                  this.props.deleteFeedback(this.props.feedback.id)
+                }>
                 Delete
               </Button>
             </TableCell>

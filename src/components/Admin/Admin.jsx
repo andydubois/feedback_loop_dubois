@@ -18,10 +18,11 @@ class Admin extends Component {
     feedbackArray: []
   };
 
+  //runs when page is loaded
   componentDidMount() {
     this.getFeedback();
   }
-
+//sends user to next page on button click
   handleSubmit = event => {
     this.props.history.push("/");
   };

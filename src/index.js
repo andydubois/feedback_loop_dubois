@@ -8,6 +8,42 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
 
+const initialFeedbackState = {
+  feeling: "",
+  understanding: "",
+  support: "",
+  comments: ""
+};
+
+const feedback = (state = initialFeedbackState, action) => {
+  switch (action.type) {
+    case "ADD_FEELING":
+      return {
+        ...state,
+        feeling: action.payload
+      };
+    case "ADD_UNDERSTANDING":
+      return {
+        ...state,
+        understanding: action.payload
+      };
+    case "ADD_SUPPORT":
+      return {
+        ...state,
+        support: action.payload
+      };
+    case "ADD_COMMENT":
+      return {
+        ...state,
+        comments: action.payload
+      };
+    case "SUBMIT_ALL":
+      return initialFeedbackState;
+    default:
+      return state;
+  }
+};
+
 const feelingsReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_FEELING":
@@ -57,7 +93,8 @@ const store = createStore(
     feelingsReducer,
     understandingReducer,
     supportReducer,
-    commentReducer
+    commentReducer,
+    feedback
   }),
   applyMiddleware(logger)
 );

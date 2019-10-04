@@ -11,10 +11,10 @@ import { Undo } from "@material-ui/icons";
 class Review extends Component {
   state = {
     feedback: {
-      feelings: this.props.reduxStore.feelingsReducer,
-      understanding: this.props.reduxStore.understandingReducer,
-      support: this.props.reduxStore.supportReducer,
-      comment: this.props.reduxStore.commentReducer
+      feelings: this.props.reduxStore.feedback.feeling,
+      understanding: this.props.reduxStore.feedback.understanding,
+      support: this.props.reduxStore.feedback.support,
+      comment: this.props.reduxStore.feedback.comment
     }
   };
 
@@ -44,10 +44,10 @@ class Review extends Component {
       <div>
         <CssBaseline />
         <h1>REVIEW YOUR FEEDBACK</h1>
-        <h3>Feelings: {this.props.reduxStore.feelingsReducer}</h3>
-        <h3>Understanding: {this.props.reduxStore.understandingReducer}</h3>
-        <h3>Support: {this.props.reduxStore.supportReducer}</h3>
-        <h3>Comments: {this.props.reduxStore.commentReducer}</h3>
+        <h3>Feelings: {this.props.reduxStore.feedback.feeling}</h3>
+        <h3>Understanding: {this.props.reduxStore.feedback.understanding}</h3>
+        <h3>Support: {this.props.reduxStore.feedback.support}</h3>
+        <h3>Comments: {this.props.reduxStore.feedback.comment}</h3>
         <Button
           variant='contained'
           color='secondary'
